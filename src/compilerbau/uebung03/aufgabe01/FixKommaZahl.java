@@ -1,7 +1,7 @@
 package compilerbau.uebung03.aufgabe01;
 
 /**
- * Created by Mei on 2017/4/12.
+ * Created by Xiangsu Chen on 2017/4/12.
  */
 public class FixKommaZahl {
     private String input;
