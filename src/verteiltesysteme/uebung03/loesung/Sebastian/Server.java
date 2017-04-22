@@ -1,4 +1,4 @@
-package verteiltesysteme.uebung03.Sebastian;
+package verteiltesysteme.uebung03.loesung.Sebastian;
 
 import java.io.BufferedReader;
 import java.io.IOException;
