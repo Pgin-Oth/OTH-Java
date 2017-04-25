@@ -1,5 +1,7 @@
 package verteiltesysteme.uebung04.server;
 
+import com.sun.deploy.util.SessionState;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -7,12 +9,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Server {
-
-    public Server(int port) {
-        super();
+    private ServerSocket servSocket;
+    public Server(ServerSocket servSocket) {
+        this.servSocket = servSocket;
     }
 
-
+    public ServerSocket getServSocket(){
+        return this.servSocket;
+    }
     public static void main(String[] args) {
         int port;
         try {
@@ -24,8 +28,15 @@ public class Server {
 
         try {
             ServerSocket servSocket = new ServerSocket(port);
+            Server server = new Server(servSocket);
+            Hub hub = new Hub(server);
+            Aceptor aceptor = new Aceptor(server);
+            ClientEndPoint clientEndPoint = new ClientEndPoint(server);
+
+
+
             while (true) {
-                try (Socket s = servSocket.accept()) {
+                try (Socket s = server.getServSocket().accept()) {
                     InputStream in = s.getInputStream();
                     OutputStream out = s.getOutputStream();
 
