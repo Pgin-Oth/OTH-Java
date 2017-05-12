@@ -1,12 +1,12 @@
-package verteiltesysteme.uebung05.loesung.client;
+package verteiltesysteme.uebung05.loesung.rmibank.client;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import verteiltesysteme.uebung05.loesung.server.Cheque;
-import verteiltesysteme.uebung05.loesung.server.IBanking;
+import verteiltesysteme.uebung05.loesung.rmibank.server.Cheque;
+import verteiltesysteme.uebung05.loesung.rmibank.server.IBanking;
 
 public class TestClient {
 
@@ -26,5 +26,4 @@ public class TestClient {
 			e.printStackTrace();
 		}
 	}
-
 }

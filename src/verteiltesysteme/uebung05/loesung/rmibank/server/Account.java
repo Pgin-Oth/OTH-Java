@@ -1,12 +1,11 @@
-package verteiltesysteme.uebung05.loesung.server;
+package verteiltesysteme.uebung05.loesung.rmibank.server;
 
 import java.rmi.NotBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import verteiltesysteme.uebung05.loesung.clearing.IAuthority;
+import verteiltesysteme.uebung05.loesung.rmibank.clearing.IAuthority;
 
 public class Account implements IBanking {
 

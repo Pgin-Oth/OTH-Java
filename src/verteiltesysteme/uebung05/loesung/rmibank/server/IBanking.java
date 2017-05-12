@@ -1,4 +1,4 @@
-package verteiltesysteme.uebung05.loesung.server;
+package verteiltesysteme.uebung05.loesung.rmibank.server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
