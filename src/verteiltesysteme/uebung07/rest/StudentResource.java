@@ -13,6 +13,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.Consumes;
 
 /**
  *
@@ -27,8 +30,34 @@ public class StudentResource {
     private static final List<Student> database = new ArrayList();
     private static int lastMartikelNr = 1;
 
+    /*
+
+{
+    "vornamen": "vornamen1",
+    "nachnamen": "nachnamen1",
+    "ects": 10,
+    "adresse": {
+        "strasse": "strasse1",
+        "ort": "ort1"
+    }
+}
+
+<student>
+    <vornamen>vornamen1</vornamen>
+    <nachnamen>nachnamen1</nachnamen>
+	<ects>10</ects>
+    <adresse strasse="strasse1">
+        <ort>ort1</ort>
+    </adresse>
+</student>
+    * */
+
     @Path("student")
     @POST
+    // If you only want to accept xml in post then do this
+    // @Consumes(MediaType.APPLICATION_XML)
+    // If you want to accept xml and json in post then do this
+    @Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
     public Student createStudent(Student s) {
         // in Datenbank eintragen
         s.setMartikelnr(lastMartikelNr);
@@ -40,6 +69,8 @@ public class StudentResource {
     // für HTTP-Method GET
     @Path("student/{studentMartikelnr}")
     @GET
+    //By default return contents is xml. If you want to have a json as return type, you can do this:
+    @Produces(MediaType.APPLICATION_JSON)
     public Student getStudentById(@PathParam("studentMartikelnr") int martikelnr) {
         // in Datenbank suchen
         Student result = null;

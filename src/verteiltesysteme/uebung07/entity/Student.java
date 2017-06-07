@@ -7,23 +7,25 @@ package verteiltesysteme.uebung07.entity;
 
 import verteiltesysteme.uebung07.entity.Adresse;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author 陈香甦
  */
+
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Student {
+    @XmlAttribute
     private int martikelnr;
     private String vornamen;
     private String nachnamen;
     private int ects;
     private Adresse adresse;
-
-    public Student() {
-        
-    }
 
     public int getMartikelnr() {
         return martikelnr;
@@ -31,38 +33,6 @@ public class Student {
 
     public void setMartikelnr(int martikelnr) {
         this.martikelnr = martikelnr;
-    }
-
-    public String getVornamen() {
-        return vornamen;
-    }
-
-    public void setVornamen(String vornamen) {
-        this.vornamen = vornamen;
-    }
-
-    public String getNachnamen() {
-        return nachnamen;
-    }
-
-    public void setNachnamen(String nachnamen) {
-        this.nachnamen = nachnamen;
-    }
-
-    public int getEcts() {
-        return ects;
-    }
-
-    public void setEcts(int ects) {
-        this.ects = ects;
-    }
-
-    public Adresse getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(Adresse adresse) {
-        this.adresse = adresse;
     }
 
     @Override
